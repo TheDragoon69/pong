@@ -16,7 +16,7 @@ var dx = 3;
 var dy = -3;
 var ballRadius = 5;
 
-//line var and dir
+//paddle var and dir
 var lineWidth = 60;
 var lineHeight = 10;
 var lineX = (canvas.width-lineWidth)/2;
@@ -59,7 +59,10 @@ setTimeout(function(){
 
 //Ball
 function drawBall(){
-    ctx.fillStyle = 'crimson';
+    var grad = ctx.createLinearGradient(10,1,220,0);
+    grad.addColorStop(0, '#beeef9');
+    grad.addColorStop(1, '#e8f6f9');
+    ctx.fillStyle = grad;
     ctx.beginPath();
     ctx.arc(x,y,ballRadius, 0, 2* Math.PI);
     ctx.stroke();
@@ -68,7 +71,7 @@ function drawBall(){
 
 //Draw Line
 function drawLine(){
-    ctx.fillStyle = '#4684a9';
+    ctx.fillStyle = '#aee1ec';
     ctx.fillRect(lineX, lineY, lineWidth, lineHeight);
 }
 
@@ -95,7 +98,7 @@ function draw(){
         requestAnimationFrame(draw);
     }else{
         ctx.clearRect(canvas.width-250, 0, canvas.width, 100);
-        drawText("Click on the screen to Restart the Game", (canvas.width-400)/2, 30);
+        drawText("Click on the screen to Restart the Game", (canvas.width-480)/2, 30);
         document.getElementById("screen").addEventListener("click", function (){
             score = -1;
             x = canvas.width/2;

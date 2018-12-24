@@ -54,7 +54,7 @@ document.addEventListener("keydown", function(event){
 //Welcome Screen Text
 setTimeout(function(){
     drawText('Click on the screen to Start Game', (canvas.width-400)/2, 30);
-}, 100);
+}, 300);
 
 
 //Ball

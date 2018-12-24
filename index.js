@@ -52,7 +52,10 @@ document.addEventListener("keydown", function(event){
 });
 
 //Welcome Screen Text
-drawText('Click on the screen to Start Game', (canvas.width-400)/2, 30);
+setTimeout(function(){
+    drawText('Click on the screen to Start Game', (canvas.width-400)/2, 30);
+}, 50);
+
 
 //Ball
 function drawBall(){
@@ -65,7 +68,7 @@ function drawBall(){
 
 //Draw Line
 function drawLine(){
-    ctx.fillStyle = 'gray';
+    ctx.fillStyle = '#4684a9';
     ctx.fillRect(lineX, lineY, lineWidth, lineHeight);
 }
 

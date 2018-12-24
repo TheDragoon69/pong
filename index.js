@@ -38,8 +38,10 @@ function drawText(text, x, y){
 }
 
 //Game start
-document.getElementById("screen").addEventListener("click", function (){
-    requestAnimationFrame(draw);
+document.addEventListener("keypress", function (event){
+    if(event.key == "Enter"){
+        requestAnimationFrame(draw);
+    }
 });
 
 //Listen for key press to move the paddle
@@ -53,7 +55,7 @@ document.addEventListener("keydown", function(event){
 
 //Welcome Screen Text
 setTimeout(function(){
-    drawText('Click on the screen to Start Game', (canvas.width-400)/2, 30);
+    drawText('Press "Enter" to Start, USE "A and "D" to move!', (canvas.width-550)/2, 30);
 }, 300);
 
 
@@ -98,14 +100,17 @@ function draw(){
         requestAnimationFrame(draw);
     }else{
         ctx.clearRect(canvas.width-250, 0, canvas.width, 100);
-        drawText("Click on the screen to Restart the Game", (canvas.width-480)/2, 30);
-        document.getElementById("screen").addEventListener("click", function (){
-            score = -1;
-            x = canvas.width/2;
-            y = canvas.height-30;
-            lineX = (canvas.width-lineWidth)/2;
-            lineY = canvas.height-25;
+        drawText('Press "Enter" to Restart the Game', (canvas.width-430)/2, 30);
+        document.addEventListener("keypress", function (event){
+            if(event.key == "Enter"){
+                score = -1;
+                x = canvas.width/2;
+                y = canvas.height-30;
+                lineX = (canvas.width-lineWidth)/2;
+                lineY = canvas.height-25;
+            }
         });
+
     }
 } 
 
